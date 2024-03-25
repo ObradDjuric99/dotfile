@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+## Author  : Aditya Shakya (adi1090x)
+## Github  : @adi1090x
+#
+## Applets : Brightness
+
+# Import Current Theme
+source "$HOME"/.config/rofi/applets/shared/theme.bash
+theme="$HOME/.config/rofi/applets/type-3/$style"
+mesg="Project"
+
+win_width='600px'
+list_col='1'
+list_row='5'
+
+option_1='PC screen only\x00icon\x1f/home/bradley/.local/share/icons/myicons/primary.png'
+option_2='Extend screen right\x00icon\x1f/home/bradley/.local/share/icons/myicons/right.png'
+option_3='Extend screen left\x00icon\x1f/home/bradley/.local/share/icons/myicons/left.png'
+option_4='Second screen only\x00icon\x1f/home/bradley/.local/share/icons/myicons/second.png'
+option_5='Refresh screen\x00icon\x1f/home/bradley/.local/share/icons/myicons/refresh.png'
+
+rofi_cmd() {
+    rofi -theme-str "window {width: $win_width;}" \
+        -theme-str "listview {columns: $list_col; lines: $list_row;}" \
+        -theme-str 'textbox-prompt-colon {str: "";}' \
+        -dmenu \
+        -p "$prompt" \
+        -mesg "$mesg" \
+        -markup-rows \
+        -theme ${theme}
+}
+
+run_cmd() {
+    if [[ "$1" == '--opt1' ]]; then
+        /home/bradley/.local/bin/hdmi.sh "--opt1"
+    elif [[ "$1" == '--opt2' ]]; then
+        /home/bradley/.local/bin/hdmi.sh "--opt2"
+    elif [[ "$1" == '--opt3' ]]; then
+        /home/bradley/.local/bin/hdmi.sh "--opt3"
+    elif [[ "$1" == '--opt4' ]]; then
+        /home/bradley/.local/bin/hdmi.sh "--opt4"
+    elif [[ "$1" == '--opt5' ]]; then
+        refresh-screen.sh
+    fi
+}
+
+run_rofi() {
+    echo -e "$option_1\n$option_2\n$option_3\n$option_4\n$option_5" | rofi_cmd
+}
+
+chosen="$(run_rofi)"
+case ${chosen} in
+'PC screen only')
+    run_cmd --opt1
+    ;;
+'Extend screen right')
+    run_cmd --opt2
+    ;;
+'Extend screen left')
+    run_cmd --opt3
+    ;;
+'Second screen only')
+    run_cmd --opt4
+    ;;
+'Refresh screen')
+    run_cmd --opt5
+    ;;
+esac
