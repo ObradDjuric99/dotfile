@@ -323,8 +323,9 @@ for_window [class="^.*"] border pixel 1
 
 gaps inner 5
 gaps outer 0
-#smart_gaps on
-#smart_borders on
+smart_gaps on
+smart_borders on
+
 
 
 
@@ -380,7 +381,7 @@ mode "$mode_gaps_outer" {
 
 #if you want transparency on non-focused windows, ...
 exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
-exec_always --no-startup-id feh --bg-scale ~/i3wm-nord/wallpapers/archWallDark.jpg
+exec_always --no-startup-id feh --bg-scale ~/i3wm-nord/wallpapers/moon-nord.png
 exec_always --no-startup-id ~/.config/i3/scripts/mouse.sh
 
 
@@ -420,7 +421,7 @@ bar {
         -m cpu memory \
         pasink pasource disk xrandr nic battery  time \
         -p time.format="%H:%M" \
-        -t solarized-powerline 
+        -t gruvbox-powerline 
          position top
          height 30 
   
@@ -429,7 +430,7 @@ bar {
           statusline #ffffff
           separator #666666
                              #Border #BG      #text
-          focused_workspace  #C678DD #C678DD #ffffff
+          focused_workspace  #00B684 #F9FBA1 #7F173E
           active_workspace   #ABB2BF #ABB2BF #282C34
           inactive_workspace #ABB2BF #ABB2BF #282C34
           urgent_workspace   #2f343a #900000 #ffffff
@@ -442,7 +443,7 @@ bar {
 
     # Window color settings
     # class                 border  backgr. text    indicator
-    client.focused          #81a1c1 #81a1c1 #ffffff #81a1c1
+    client.focused          #81a1c1 #00B684 #ffffff #81a1c1
     client.unfocused        #2e3440 #1f222d #888888 #1f222d
     client.focused_inactive #2e3440 #1f222d #888888 #1f222d
     client.placeholder      #2e3440 #1f222d #888888 #1f222d

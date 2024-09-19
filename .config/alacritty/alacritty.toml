@@ -51,7 +51,11 @@ cursor = "#d8dee9"
 text = "#2e3440"
 
 [font]
-size = 8
+size = 10
+
+[env]
+WINIT_X11_SCALE_FACTOR="1.25"
+
 
 [font.bold]
 family = "JetBrainsMonoNL Nerd Font"

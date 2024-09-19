@@ -22,6 +22,10 @@ vim.keymap.set("n", "<leader>svwm", function()
 	require("vim-with-me").StopVimWithMe()
 end)
 
+
+-- x normal + insert , 
+
+
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]])
 

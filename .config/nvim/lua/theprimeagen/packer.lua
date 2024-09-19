@@ -9,7 +9,7 @@ return require("packer").startup(function(use)
 
 	use({
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.x",
+		tag = "0.1.6",
 		-- or                            , branch = '0.1.x',
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
@@ -21,6 +21,9 @@ return require("packer").startup(function(use)
 			vim.cmd("colorscheme rose-pine")
 		end,
 	})
+    use({
+        "folke/tokyonight.nvim"
+    })
 
 	use({
 		"folke/trouble.nvim",
@@ -35,8 +38,8 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
-	use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
-	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+	-- use({ "mxsdev/nvim-dap-vscode-js", requires = { "mfussenegger/nvim-dap" } })
+	-- use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 	use("rcarriga/nvim-notify")
 	use("folke/neodev.nvim")
 	use({
@@ -52,13 +55,17 @@ return require("packer").startup(function(use)
 
 	use({ "dracula/vim" })
 	use("tpope/vim-vinegar")
-	use("mfussenegger/nvim-dap")
+	-- use("mfussenegger/nvim-dap")
 	use("preservim/tagbar")
 	-- use({ "codota/tabnine-nvim", run = "./dl_binaries.sh" })
 	use("lambdalisue/suda.vim")
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("nvim-treesitter/playground")
-	use("theprimeagen/harpoon")
+    use {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    requires = { {"nvim-lua/plenary.nvim"} }
+    }
 	use("theprimeagen/refactoring.nvim")
 	use("mbbill/undotree")
 	use("tpope/vim-fugitive")
@@ -73,7 +80,7 @@ return require("packer").startup(function(use)
 
 	use({
 		"VonHeikemen/lsp-zero.nvim",
-		branch = "v1.x",
+		branch = "v3.x",
 		requires = {
 			-- LSP Support
 			{ "neovim/nvim-lspconfig" },

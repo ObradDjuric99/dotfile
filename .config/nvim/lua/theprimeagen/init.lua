@@ -37,7 +37,9 @@ autocmd({ "VimEnter" }, {
 	pattern = { "*" },
 	command = "hi TreesitterContext guibg = #252321",
 })
-
+vim.cmd("hi diffRemoved guifg = red")
+vim.cmd("hi diffAdded guifg = green")
+vim.cmd("hi TreesitterContext guibg = #252321")
 -- autocmd({ "BufWritePre" }, {
 -- 	pattern = { "*" },
 -- 	command = "silent Neoformat",
